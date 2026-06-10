@@ -74,7 +74,7 @@ async function downloadFullSize(
     const actualHeight = variant === "banner" ? container.scrollHeight : ph;
     const canvas = await html2canvas(container, {
       useCORS: true,
-      background: null, // Mudado de backgroundColor para background
+      background: undefined,
       scale: scale,
       logging: false,
       width: pw,
