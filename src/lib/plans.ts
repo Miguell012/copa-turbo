@@ -1,5 +1,5 @@
 import type { Plan } from "./types";
- 
+
 export const PLANS: Plan[] = [
   {
     id: "basico",
@@ -8,11 +8,11 @@ export const PLANS: Plan[] = [
     priceLabel: "R$ 9,90",
     campaigns: "2 campanhas",
     features: [
-      "Post Instagram",
-      "Story",
-      "Banner WhatsApp",
-      "Link da promoção simples",
-      "QR Code",
+      "Post pronto para Instagram",
+      "Story vertical para Stories",
+      "Banner otimizado para WhatsApp",
+      "Link público da promoção",
+      "QR Code para imprimir na porta",
     ],
   },
   {
@@ -24,13 +24,12 @@ export const PLANS: Plan[] = [
     highlighted: true,
     badge: "Mais vendido",
     features: [
-      "Post Instagram",
-      "Story",
-      "Banner WhatsApp",
-      "Link da promoção completo",
-      "QR Code",
-      "Galeria de fotos na página",
-      "Prioridade na geração",
+      "Tudo do Básico",
+      "Página da promoção com galeria de fotos",
+      "Link personalizado do estabelecimento",
+      "Botão de WhatsApp com mensagem pré-pronta",
+      "Contagem regressiva ao vivo até o jogo",
+      "Geração prioritária (fila expressa)",
     ],
   },
   {
@@ -39,21 +38,20 @@ export const PLANS: Plan[] = [
     price: 29.9,
     priceLabel: "R$ 29,90",
     campaigns: "Campanhas ilimitadas por 30 dias",
+    badge: "Melhor custo-benefício",
     features: [
-      "Post Instagram",
-      "Story",
-      "Banner WhatsApp",
-      "Link da promoção premium",
-      "QR Code",
-      "Galeria de fotos na página",
+      "Tudo do Premium",
+      "Campanhas ilimitadas durante 30 dias",
       "Foto de capa do estabelecimento",
-      "Selo verificado na página",
-      "Sem marca d'água",
-      "Templates premium",
+      "Selo ✓ Verificado na página pública",
+      "Materiais sem marca d'água",
+      "Templates premium exclusivos",
+      "Destaque na listagem Copa Turbo",
+      "Suporte prioritário por WhatsApp",
     ],
   },
 ];
- 
+
 export function getPlanById(id: string): Plan | undefined {
   const normalized = id === "mais-vendido" ? "premium" : id;
   return PLANS.find((p) => p.id === normalized);

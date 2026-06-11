@@ -98,7 +98,6 @@ function SucessoContent() {
             👁 Abrir página
           </a>
 
-          {/* Compartilhar no WhatsApp */}
           <a
             href={whatsappShareUrl}
             target="_blank"
@@ -131,7 +130,12 @@ function SucessoContent() {
       {/* Materiais */}
       <div className="mt-12">
         <h2 className="mb-6 text-xl font-bold text-copa-blue">Seus materiais</h2>
-        <CampaignPreview data={campaign} slug={campaign.slug} showWatermark={false} />
+        <CampaignPreview
+          data={campaign}
+          slug={campaign.slug}
+          showWatermark={false}
+          planId={campaign.planId as "basico" | "premium" | "pro"}
+        />
       </div>
 
       {/* Criar outra */}

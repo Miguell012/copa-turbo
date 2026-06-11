@@ -51,6 +51,7 @@ function PreviewContent() {
   }
 
   const plan = getPlanById(campaign.planId);
+  const planId = campaign.planId as "basico" | "premium" | "pro";
 
   return (
     <>
@@ -67,22 +68,20 @@ function PreviewContent() {
         </div>
       </div>
 
-      {/* Prévia da página pública — BLOQUEADA antes do pagamento */}
+      {/* Prévia da página pública */}
       <div className="mb-8 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
         <div className="bg-slate-100 px-4 py-2 text-xs text-slate-500 font-medium">
           📱 Prévia da página pública
         </div>
         <div className="relative">
-          {/* Página renderizada */}
           <div className={!campaign.paid ? 'pointer-events-none select-none' : ''}>
             <PublicPromotionPage
               data={campaign}
-              planId={campaign.planId}
+              planId={planId}
               showWatermark={false}
             />
           </div>
 
-          {/* Overlay de bloqueio — só aparece antes do pagamento */}
           {!campaign.paid && (
             <div
               className="absolute inset-0 flex flex-col items-center justify-center z-40"
@@ -93,9 +92,7 @@ function PreviewContent() {
             >
               <div className="text-center px-6 py-8 max-w-xs">
                 <div className="text-5xl mb-4">🔒</div>
-                <h2 className="text-2xl font-black text-white mb-2">
-                  Página bloqueada
-                </h2>
+                <h2 className="text-2xl font-black text-white mb-2">Página bloqueada</h2>
                 <p className="text-white/70 text-sm mb-6 leading-relaxed">
                   Finalize o pagamento para liberar sua página pública e compartilhar com seus clientes.
                 </p>
@@ -107,9 +104,7 @@ function PreviewContent() {
                 >
                   Desbloquear por {plan?.priceLabel}
                 </button>
-                <p className="text-white/40 text-xs mt-3">
-                  Pagamento único • Sem mensalidade
-                </p>
+                <p className="text-white/40 text-xs mt-3">Pagamento único • Sem mensalidade</p>
               </div>
             </div>
           )}
@@ -120,6 +115,7 @@ function PreviewContent() {
         data={campaign}
         slug={campaign.slug}
         showWatermark={!campaign.paid}
+        planId={planId}
       />
 
       {!campaign.paid && (

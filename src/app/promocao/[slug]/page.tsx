@@ -60,7 +60,7 @@ export default function PromocaoPage() {
         <div className="pointer-events-none select-none" style={{ filter: 'blur(8px)', opacity: 0.4 }}>
           <PublicPromotionPage
             data={campaign}
-            planId={campaign.planId}
+            planId={campaign.planId as "basico" | "premium" | "pro"}
             showWatermark={false}
           />
         </div>
@@ -103,11 +103,11 @@ export default function PromocaoPage() {
     )
   }
 
-  // Campanha paga — mostra normalmente
+  // Campanha paga — mostra com o planId correto
   return (
     <PublicPromotionPage
       data={campaign}
-      planId={campaign.planId}
+      planId={campaign.planId as "basico" | "premium" | "pro"}
       showWatermark={false}
     />
   )

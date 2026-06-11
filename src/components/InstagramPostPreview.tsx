@@ -5,14 +5,23 @@ interface InstagramPostPreviewProps {
   data: CampaignFormData;
   showFrame?: boolean;
   showWatermark?: boolean;
+  planId?: "basico" | "premium" | "pro";
 }
 
 export default function InstagramPostPreview({
   data,
   showFrame = true,
   showWatermark = false,
+  planId = "basico",
 }: InstagramPostPreviewProps) {
-  const content = <CampaignCreative data={data} variant="post" showWatermark={showWatermark} />;
+  const content = (
+    <CampaignCreative
+      data={data}
+      variant="post"
+      showWatermark={showWatermark}
+      planId={planId}
+    />
+  );
 
   if (!showFrame) return content;
 
